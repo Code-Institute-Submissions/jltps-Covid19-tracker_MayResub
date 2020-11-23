@@ -2,3 +2,21 @@
 body {
     font-family: 'Roboto Condensed', sans-serif;
 }
+
+
+/* ------------------------------- Header ------------------------------------------- */
+
+header {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+header img {
+    height: 65px;
+    width: 65px;
+}
+
+header h1 {
+    font-size: 30px;
+    color: #38383c;
+    padding: 30px;
+}
