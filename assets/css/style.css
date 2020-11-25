@@ -88,8 +88,21 @@ body {
 
 /* ------------------------------- Body - Indicators ------------------------------------------- */
 
-.graphics-container {}
+.graphics-container {
+    display: grid;
+    grid-template-rows: 500px;
+    grid-template-columns: 40% 60%;
+    background-color: yellow;
+}
 
-#timeline {}
+#timeline {
+    display: inline;
+    margin-left: 15px;
+    background-color: #fff;
+}
 
-#world-map {}
+#geochart {
+    display: inline;
+    padding: auto;
+    margin: auto;
+}

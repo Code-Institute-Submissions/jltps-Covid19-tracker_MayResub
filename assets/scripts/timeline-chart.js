@@ -47,8 +47,8 @@ function drawChart() {
             title: 'Pandemic Evolution in the last 30 days',
             subtitle: 'in number of cases'
         },
-        width: 900,
-        height: 500,
+        // width: 600,
+        // height: 400,
         axes: {
             x: {
                 0: { side: 'top' }
@@ -59,4 +59,8 @@ function drawChart() {
     var chart = new google.charts.Line(document.getElementById('timeline'));
 
     chart.draw(data, google.charts.Line.convertOptions(options));
+
+    $(window).resize(function() {
+        chart.draw(data, google.charts.Line.convertOptions(options));
+    });
 }
