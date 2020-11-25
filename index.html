@@ -14,12 +14,12 @@
     <div class="header-container">
         <div class="header-item">
             <img src="assets/images/C19T-Logo.png" alt="Covid-19 Tracker Logo">
-            <h1 class="align-middle ">COVID-19 TRACKER</h1>
+            <h1 class="align-middle">COVID-19 TRACKER</h1>
         </div>
-        <div></div>
+        <div class="header-item"></div>
         <div class="header-item">
-            <form class="form-inline search-country">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search Country" aria-label="Search Country">
+            <form class="form-inline">
+                <input class="form-control" type="search" placeholder="Search Country" aria-label="Search Country">
             </form>
         </div>
     </div>
@@ -27,34 +27,24 @@
 </header>
 
 <body>
-    <div class="container-fluid" style="background-color: red; ">
-        <div class="row justify-content-center" style="background-color: yellow; ">
-            <div class="col-sm-auto justify-content-center" style="background-color: blue; ">
-                <div class="row justify-content-center ">
-                    <div class="rounded ">
-                        COUNTRY: Turzebekistão
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="background-color: brown; ">
-                    <div class="rounded ">
-                        POPULATION: 232.454.678
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-cente " style="background-color: cyan;">
-                <div class="col-2 rounded">
-                    CASES<br>5409735
-                </div>
-                <div class="col-2 rounded">
-                    ACTIVE<br>5409735
-                </div>
-                <div class="col-2 rounded">
-                    DEATHS<br>5409735
-                </div>
-                <div class="col-2 rounded">
-                    RECOVERED<br>5409735
-                </div>
-            </div>
+    <div class="indicators-container">
+        <div class="shadow p-2 mb-1 rounded" id="country-name">
+            COUNTRY: Turzebekistão
+        </div>
+        <div class="shadow p-2 mb-1 rounded" id="country-population">
+            POPULATION: 232.454.678
+        </div>
+        <div class="shadow p-2 mb-1 rounded" id="total-cases">
+            CASES<br>5409735
+        </div>
+        <div class="shadow p-2 mb-1 rounded" id="active-cases">
+            ACTIVE<br>5409735
+        </div>
+        <div class="shadow p-2 mb-1 rounded" id="deaths">
+            DEATHS<br>5409735
+        </div>
+        <div class="shadow p-2 mb-1 rounded" id="recovered">
+            RECOVERED<br>5409735
         </div>
     </div>
 
