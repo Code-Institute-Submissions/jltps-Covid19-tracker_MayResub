@@ -90,19 +90,16 @@ body {
 
 .graphics-container {
     display: grid;
-    grid-template-rows: 500px;
-    grid-template-columns: 40% 60%;
-    background-color: yellow;
+    grid-template-rows: 900px 900px;
+    background-color: #eeeeee;
 }
 
 #timeline {
-    display: inline;
-    margin-left: 15px;
-    background-color: #fff;
+    padding: auto;
+    margin: auto;
 }
 
 #geochart {
-    display: inline;
     padding: auto;
     margin: auto;
 }

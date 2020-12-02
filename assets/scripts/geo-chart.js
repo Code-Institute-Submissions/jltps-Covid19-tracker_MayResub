@@ -17,8 +17,8 @@ function drawRegionsMap() {
 
     var options = {
         colorAxis: { colors: ['yellow', '#ef7a06', '#cf2626'] },
-        // width: 700,
-        //    height: 400,
+        width: 1200,
+        height: 800,
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('geochart'));
