@@ -26,3 +26,17 @@ function writeToDocument() {
 }
 
 writeToDocument();
+var countryArray = [];
+var CA = new Array;
+
+function printCountryList() {
+
+    getData(function(data) {
+        data.Countries.forEach(function(item) {
+            countryArray.push([Object.values(item)]);
+        });
+        CA = Array.from(countryArray);
+    });
+}
+
+console.log(typeof(CA));
