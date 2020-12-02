@@ -85,6 +85,26 @@ body {
     background-color: #eeeeee;
 }
 
+#cases-number,
+#total-cases {
+    color: #c841a6;
+}
+
+#active-number,
+#active-cases {
+    color: #ef7a06;
+}
+
+#deaths-number,
+#deaths {
+    color: #cf2626;
+}
+
+#recovered-number,
+#recovered {
+    color: #1fc14d;
+}
+
 
 /* ------------------------------- Body - Indicators ------------------------------------------- */
 
