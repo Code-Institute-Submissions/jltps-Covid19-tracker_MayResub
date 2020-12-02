@@ -91,7 +91,6 @@ body {
 .graphics-container {
     display: grid;
     grid-template-rows: 900px 900px;
-    background-color: #eeeeee;
 }
 
 #timeline {
@@ -102,4 +101,32 @@ body {
 #geochart {
     padding: auto;
     margin: auto;
+}
+
+
+/* ------------------------------- Footer ------------------------------------------- */
+
+footer {
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-container {
+    height: 75px;
+    background-color: #eeeeee;
+    color: #1e2225;
+    text-align: center;
+}
+
+.footer-container i {
+    color: #ef7a06;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.footer-container i:hover {
+    color: #cf2626;
+}
+
+.footer-container h5 {
+    padding-top: 10px;
 }
