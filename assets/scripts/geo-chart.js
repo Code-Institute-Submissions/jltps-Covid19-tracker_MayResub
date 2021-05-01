@@ -1,6 +1,6 @@
 google.charts.load('current', {
     'packages': ['geochart'],
-    'mapsApiKey': 'AIzaSyD2iZgjyJvZ8Om7Mr8_i0_aiDc4ZOk9xhw'
+    'mapsApiKey': config.MAPS_API_KEY
 });
 google.charts.setOnLoadCallback(drawRegionsMap);
 
