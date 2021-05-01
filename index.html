@@ -18,6 +18,7 @@
     <title>COVID-19 Tracker</title>
 </head>
 
+<body>
 <header>
     <div class="header-container">
         <div class="header-item">
@@ -27,47 +28,46 @@
         <div class="header-item"></div>
         <div class="header-item">
             <form class="form-inline">
-                <input class="form-control" type="search" placeholder="Search Country" aria-label="Search Country">
+                <input class="form-control" id="search-country" type="text" placeholder="Search Country" oninput="getCountriesList()" aria-label="Search Country" />
             </form>
         </div>
     </div>
 </header>
 
-<body>
-    <div class="indicators-container">
-        <div class="shadow p-2 mb-1 rounded" id="country-name">
-            GLOBAL OVERVIEW
-        </div>
-        <div class="shadow p-2 mb-1 rounded" id="country-population">
-            POPULATION: 7 795 000 000
-        </div>
-        <div class="shadow p-2 mb-1 rounded" id="total-cases">
-            <p>CASES</p>
-            <p id="cases-number">5656565</p>
-        </div>
-        <div class="shadow p-2 mb-1 rounded" id="active-cases">
-            <p>ACTIVE</p>
-            <p id="active-number">5656565</p>
-        </div>
-        <div class="shadow p-2 mb-1 rounded" id="deaths">
-            <p>DEATHS</p>
-            <p id="deaths-number">5656565</p>
-        </div>
-        <div class="shadow p-2 mb-1 rounded" id="recovered">
-            <p>RECOVERED</p>
-            <p id="recovered-number">5656565</p>
-        </div>
+
+<div class="indicators-container">
+    <div class="shadow p-2 mb-1 rounded" id="country-name">
+        GLOBAL OVERVIEW
     </div>
-
-    <div class="graphics-container">
-        <div id="timeline">
-
-        </div>
-        <div id="geochart">
-
-        </div>
+    <div class="shadow p-2 mb-1 rounded" id="country-population">
+        POPULATION: 7 795 000 000
     </div>
-</body>
+    <div class="shadow p-2 mb-1 rounded" id="total-cases">
+        <p>CASES</p>
+        <p id="cases-number"></p>
+    </div>
+    <div class="shadow p-2 mb-1 rounded" id="active-cases">
+        <p>ACTIVE</p>
+        <p id="active-number"></p>
+    </div>
+    <div class="shadow p-2 mb-1 rounded" id="deaths">
+        <p>DEATHS</p>
+        <p id="deaths-number"></p>
+    </div>
+    <div class="shadow p-2 mb-1 rounded" id="recovered">
+        <p>RECOVERED</p>
+        <p id="recovered-number">5</p>
+    </div>
+</div>
+
+<div class="graphics-container">
+    <div id="timeline">
+
+    </div>
+    <div id="geochart">
+
+    </div>
+</div>
 
 <footer>
     <div class="footer-container">
@@ -78,4 +78,5 @@
     </div>
 </footer>
 
+</body>
 </html>

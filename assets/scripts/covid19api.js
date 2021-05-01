@@ -1,4 +1,4 @@
-function getData(cb) {
+function getSummary(cb) {
     var settings = {
         "url": "https://api.covid19api.com/summary",
         "method": "GET",
@@ -11,13 +11,17 @@ function getData(cb) {
     });
 }
 
-getData(function(data) {
-    console.log(data);
-    console.dir(data);
-});
+// function getCountriesList() {
+//     let url = "https://api.covid19api.com/countries";
+//     let cl = $.getJSON(url);
+//     let clparsed = JSON.parse(cl);
+//     console.log("CL is: " + clparsed);
+// }
+
+// getCountriesList();
 
 function writeToDocument() {
-    getData(function(data) {
+    getSummary(function(data) {
         document.getElementById("cases-number").innerHTML = data.Global.TotalConfirmed.toLocaleString();
         document.getElementById("active-number").innerHTML = data.Global.NewConfirmed.toLocaleString();
         document.getElementById("deaths-number").innerHTML = data.Global.TotalDeaths.toLocaleString();
@@ -26,17 +30,3 @@ function writeToDocument() {
 }
 
 writeToDocument();
-var countryArray = [];
-var CA = new Array;
-
-function printCountryList() {
-
-    getData(function(data) {
-        data.Countries.forEach(function(item) {
-            countryArray.push([Object.values(item)]);
-        });
-        CA = Array.from(countryArray);
-    });
-}
-
-console.log(typeof(CA));

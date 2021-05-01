@@ -15,12 +15,6 @@ function drawRegionsMap() {
         ['Portugal', 700]
     ]);
 
-    console.dir(countryArray);
-    countryArray.forEach(function() {})
-    data.addRows([
-        ['Spain', 1000]
-    ]);
-
     var options = {
         colorAxis: { colors: ['yellow', '#ef7a06', '#cf2626'] },
         width: 1200,
@@ -32,6 +26,3 @@ function drawRegionsMap() {
     chart.draw(data, options);
 
 }
-
-printCountryList();
-console.log(typeof(countryArray))
