@@ -12,17 +12,15 @@ const getData = async () => {
 //   };
 }
 
-const writeToDocument = async () => {
+const writeSummaryToDocument = async () => {
     const data = await getData();
     document.getElementById("cases-number").innerHTML = data.Global.TotalConfirmed.toLocaleString();
     document.getElementById("active-number").innerHTML = data.Global.NewConfirmed.toLocaleString();
     document.getElementById("deaths-number").innerHTML = data.Global.TotalDeaths.toLocaleString();
     document.getElementById("recovered-number").innerHTML = data.Global.TotalRecovered.toLocaleString();
-
-    console.log(data + " use data");
 }
   
-writeToDocument();
+writeSummaryToDocument();
 
 // function getCountriesList() {
 //     let url = "https://api.covid19api.com/countries";
