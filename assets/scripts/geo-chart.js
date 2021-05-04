@@ -13,13 +13,14 @@ async function drawRegionsMap() {
     var data = google.visualization.arrayToDataTable(countryList);
 
     var options = {
-        colorAxis: { colors: ['yellow', '#ef7a06', '#cf2626'] },
-        keepAspectRatio: true
-      
+        colorAxis: { colors: ['yellow', '#ef7a06', '#cf2626'] }, 
+        legend: 'none'
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('geochart'));
 
+    $(window).resize(function(){
+        chart.draw(data, options);
+    });
     chart.draw(data, options);
-
 }

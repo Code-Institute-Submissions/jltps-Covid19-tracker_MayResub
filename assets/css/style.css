@@ -54,23 +54,29 @@ body {
      margin-bottom: 5px;
 }
 
-/* ------------------------------- Body - Indicators ------------------------------------------- */
-
-.graphics-container {
-    display: grid;
-    grid-template-rows: 900px 900px;
-}
+/* ------------------------------- Charts ------------------------------------------- */
 
 #timeline {
-    padding: auto;
-    margin: auto;
+    width: 100%;
+    min-height: 450px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* padding: auto;
+    margin: auto; */
 }
 
 #geochart {
-    padding: auto;
-    margin: auto;
+    width: 100%;
+    min-height: 450px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* padding: auto;
+    margin: auto; */
 }
 
+.chart-row {
+    margin: 0 !important;
+}
 
 /* ------------------------------- Footer ------------------------------------------- */
 
