@@ -13,18 +13,20 @@
 <body>
 
 <header>
-    <div class="header-container">
-        <div class="header-item">
-            <img src="assets/images/C19T-Logo.png" alt="Covid-19 Tracker Logo">
-            <h1 class="align-middle">COVID-19 TRACKER</h1>
+    
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="assets/images/C19T-Logo.png" alt="Covid-19 Tracker Logo" class="d-inline-block align-text-center">
+            <p class="d-none d-sm-inline">COVID-19 TRACKER</p>
+          </a>
+          <form class="d-flex">
+            <button class="btn btn-outline-primary" type="submit">Search Country</button>
+        </form>
+
         </div>
-        <div class="header-item"></div>
-        <div class="header-item">
-            <form class="form-inline">
-                <input class="form-control" id="search-country" type="text" placeholder="Search Country" oninput="getCountriesList()" aria-label="Search Country" />
-            </form>
-        </div>
-    </div>
+    </nav>
+
 </header>
 
 
