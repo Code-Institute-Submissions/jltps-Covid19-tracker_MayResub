@@ -79,8 +79,7 @@ footer {
 }
 
 .footer-container {
-    height: 75px;
-    background-color: #eeeeee;
+    height: 25px;
     color: #1e2225;
     text-align: center;
 }
@@ -93,8 +92,4 @@ footer {
 
 .footer-container i:hover {
     color: #cf2626;
-}
-
-.footer-container h5 {
-    padding-top: 10px;
 }
