@@ -6,9 +6,9 @@ google.charts.setOnLoadCallback(drawRegionsMap);
 
 async function drawRegionsMap() {
     let countryData = await getData()
-    let countryList = [['Country', 'Total Cases']]
+    let countryList = [['Country code', 'Country name', 'Total Cases']]
     for(let i = 1; i < countries.length; i++) {
-    countryList.push([countryData.Countries[i].CountryCode, countryData.Countries[i].TotalConfirmed])
+    countryList.push([countryData.Countries[i].CountryCode, countryData.Countries[i].Country, countryData.Countries[i].TotalConfirmed])
         }
     var data = google.visualization.arrayToDataTable(countryList);
 
