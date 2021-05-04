@@ -4,16 +4,13 @@ google.charts.load('current', {
 });
 google.charts.setOnLoadCallback(drawRegionsMap);
 
-function drawRegionsMap() {
-    var data = google.visualization.arrayToDataTable([
-        ['Country', 'Active cases'],
-        ['Germany', 200],
-        ['United States', 300],
-        ['Brazil', 400],
-        ['Canada', 500],
-        ['France', 600],
-        ['Portugal', 700]
-    ]);
+async function drawRegionsMap() {
+    let countryData = await getData()
+    let countryList = [['Country', 'Total Cases']]
+    for(let i = 1; i < countries.length; i++) {
+    countryList.push([countryData.Countries[i].CountryCode, countryData.Countries[i].TotalConfirmed])
+        }
+    var data = google.visualization.arrayToDataTable(countryList);
 
     var options = {
         colorAxis: { colors: ['yellow', '#ef7a06', '#cf2626'] },
