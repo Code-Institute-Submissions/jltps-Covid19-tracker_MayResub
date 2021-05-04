@@ -12,8 +12,10 @@
 
 <body>
 
+<!-- Navbar -->
+
 <header>
-    
+
     <nav class="navbar navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
@@ -29,31 +31,68 @@
 
 </header>
 
+<!-- Country indicators -->
 
-<div class="indicators-container">
-    <div class="shadow p-2 mb-1 rounded" id="country-name">
-        GLOBAL OVERVIEW
-    </div>
-    <div class="shadow p-2 mb-1 rounded" id="country-population">
-        POPULATION: 7 795 000 000
-    </div>
-    <div class="shadow p-2 mb-1 rounded" id="total-cases">
-        <p>CASES</p>
-        <p id="cases-number">loading...</p>
-    </div>
-    <div class="shadow p-2 mb-1 rounded" id="active-cases">
-        <p>ACTIVE</p>
-        <p id="active-number">loading...</p>
-    </div>
-    <div class="shadow p-2 mb-1 rounded" id="deaths">
-        <p>DEATHS</p>
-        <p id="deaths-number">loading...</p>
-    </div>
-    <div class="shadow p-2 mb-1 rounded" id="recovered">
-        <p>RECOVERED</p>
-        <p id="recovered-number">loading...</p>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+            <div class="card bg-light text-center mt-3 ml-3 mr-3 mb-3">
+                <div class="card-header">
+                    <h6 id="country-name">Global Overview</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card bg-light text-center mt-3 ml-3 mr-3 mb-3">
+                <div class="card-header">
+                    <h6 id="country-population">POPULATION: 7 795 000 000</h6>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<!-- Country stats -->
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+        <div class="col">
+            <div id="total-cases" class="card h-100 bg-light text-center">
+                <div class="card-header">CASES</div>
+                <div class="card-body">
+                    <h5 id="cases-number" class="card-title">loading...</h5>
+                </div>
+            </div>
+        </div>    
+        <div class="col">
+            <div id="active-cases" class="card h-100 bg-light text-center">
+                <div class="card-header">ACTIVE</div>
+                <div class="card-body">
+                    <h5 id="active-number" class="card-title">loading...</h5>
+                </div>
+            </div>
+        </div>   
+        <div class="col">
+            <div id="deaths" class="card h-100 bg-light text-center">
+                <div class="card-header">DEATHS</div>
+                <div class="card-body">
+                    <h5 id="deaths-number" class="card-title">loading...</h5>
+                </div>
+            </div>
+        </div>    
+        <div class="col">
+            <div id="recovered" class="card h-100 bg-light text-center">
+                <div class="card-header">RECOVERED</div>
+                <div class="card-body">
+                    <h5 id="recovered-number" class="card-title">loading...</h5>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
+
+<!-- Charts -->
+
 
 <div class="graphics-container">
     <div id="timeline">
