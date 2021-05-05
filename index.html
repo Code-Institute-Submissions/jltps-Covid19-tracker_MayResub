@@ -18,16 +18,36 @@
 
     <nav class="navbar navbar-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#">
             <img src="assets/images/C19T-Logo.png" alt="Covid-19 Tracker Logo" class="d-inline-block align-text-center">
             <p class="d-none d-sm-inline">COVID-19 TRACKER</p>
-          </a>
-          <form class="d-flex">
-            <button class="btn btn-outline-primary" type="submit">Search Country</button>
-        </form>
-
+            </a>
+            <form class="d-flex">
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">Search Country</button>
+            </form>
         </div>
     </nav>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Search Country</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="coutryNameInput" placeholder="type Country name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </header>
 
@@ -97,9 +117,9 @@
     <div class="col-12">
         <div id="geochart"></div>
     </div>
-    <div class="col-12">
+    <!-- <div class="col-12">
         <div id="timeline">
-    </div>
+    </div> -->
 </div>
 
 <!-- Footer -->
