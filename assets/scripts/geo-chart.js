@@ -9,7 +9,8 @@ async function drawRegionsMap() {
     let countryList = [['Country code', 'Country name', 'Total Cases']]
     for(let i = 1; i < countryData.Countries.length; i++) {
     countryList.push([countryData.Countries[i].CountryCode, countryData.Countries[i].Country, countryData.Countries[i].TotalConfirmed])
-        }
+    }
+    
     var data = google.visualization.arrayToDataTable(countryList);
 
     var options = {

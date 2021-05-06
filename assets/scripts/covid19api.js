@@ -1,5 +1,6 @@
 const summaryURL = "https://api.covid19api.com/summary";
 const activeURL = "https://api.covid19api.com/total/country/"
+let casesHistory;
 
 const getData = async () => {
     const response = await fetch(summaryURL);
@@ -58,17 +59,15 @@ const fetchCountryName = async (event) => {
 }
 
 
-const drawCasesHistoryGraph = async (url) => {
+const casesHistoryData = async (url) => {
     const response = await fetch(activeURL + url);
     const data = await response.json();
-    let casesHistory = [];
+    let cases = [];
 
-    for(let i = 0; i < data.length; i++) {
-        casesHistory.push(data[i].Cases);
+    for(let i in data) {
+        cases.push(data[i].Cases);
     }
-
-    console.log(casesHistory, 'active we are');
-    return data;
+    return cases;
 }
 
 
@@ -84,7 +83,11 @@ const selectCountry = async (selectedCountry) => {
 
 
     $("#searchCountryData").html(
-        `<h6>COVID-19 info for ${selectedCountry}:</6>
+        `<div class="row">
+            <div class="col-12 col-m6 offset-m3 text-center">
+                <h4 class="border border-primary border-5 rounded-pill bg-light">COVID-19 info for ${selectedCountry}:</h4>
+            </div>
+        </div>
         <div class="container">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
                 <div class="col">
@@ -122,6 +125,48 @@ const selectCountry = async (selectedCountry) => {
             </div>
         </div>`);
     
-    drawCasesHistoryGraph(url);
-    
+casesHistory = await casesHistoryData(url);
+
+google.charts.load('current', { 'packages': ['line'] });
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'Day');
+    data.addColumn('number', 'Total Cases');
+    data.addColumn('number', 'New Cases');
+     
+    let casesRows = [[39, casesHistory[39], (casesHistory[39]-casesHistory[38])]];
+    console.log(casesRows+"BEFORE")
+    for(let i=40; i < casesHistory.length; i++) {
+        casesRows.push([i-40, casesHistory[i], (casesHistory[i]-casesHistory[i-1])]);
+    }
+
+    console.log(casesRows+"cases ROWWWS")
+    data.addRows(casesRows);
+
+    var options = {
+        chart: {
+            title: 'Pandemic Evolution since March 1st 2020 until today',
+            subtitle: 'in number of cases', 
+            legend: 'none'
+        },
+
+        axes: {
+            x: {
+                0: { side: 'bottom' }
+            }
+        }
+    };
+
+    var timelineChart = new google.charts.Line(document.getElementById('timeline'));
+
+    timelineChart.draw(data, google.charts.Line.convertOptions(options));
+
+    $(window).resize(function() {
+        timelineChart.draw(data, google.charts.Line.convertOptions(options));
+    });
 }
+}
+
