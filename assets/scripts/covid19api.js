@@ -6,10 +6,6 @@ const getData = async () => {
     console.log(data, 'data');
     countries = data.Countries;
     return data;
-//   {
-//     countries: data.Countries,
-//     globalData: data.Global,
-//   };
 }
 
 const writeSummaryToDocument = async () => {
@@ -31,11 +27,6 @@ const fetchCountryName = async (event) => {
         $("#searchCountryData").html(`<h5>Please enter a Country name</h5>`);
         return;
     }
-    
-    $("#searchCountryData").html(
-        `<div id="loader">
-            <img src="assets/css/loader.gif" alt="loading..." />
-        </div>`);
 
     let foundCountries = [];
     for(let i = 0; i < data.Countries.length; i++) {
@@ -43,9 +34,34 @@ const fetchCountryName = async (event) => {
             foundCountries.push(data.Countries[i]);
     }
     
+    if(foundCountries.length > 0) {
+        $("#searchCountryData").html(
+            `<div id="loader">
+                <img src="assets/css/loader.gif" alt="loading..." />
+                <h6><i class="fas fa-long-arrow-alt-down"></i> Please click an option below <i class="fas fa-long-arrow-alt-down"></i></h6>
+            </div>`);
+        } else {
+            $("#searchCountryData").html(
+                `<div id="loader">
+                    <h6><i class="fas fa-exclamation-triangle"></i> No Country found</h6>
+                </div>`);
+    }
+    
     for(let i=0; i < foundCountries.length; i++) {
-        $("#searchCountryData").append(`<button class="btn btn-info search-country-button">${foundCountries[i].Country}</button>`)
+        $("#searchCountryData").append(
+            `<button class="btn btn-info search-country-button" onclick="selectCountry(this.innerHTML)" data-bs-dismiss="modal">${foundCountries[i].Country}</button>`)
     }
     console.log(foundCountries, "found country")
-    
+}
+
+const selectCountry = async (selectedCountry) => {
+    console.log(selectedCountry);
+    const data = await getData();
+    let a = data.Countries.findIndex(function(currentValue) {
+        return (currentValue.Country == selectedCountry);
+    });
+    $("body").html(
+        `<h1>${data.Countries[a].Country}</h1>`);
+    console.log(a);
+    console.log(data.Countries[a].Country);
 }
