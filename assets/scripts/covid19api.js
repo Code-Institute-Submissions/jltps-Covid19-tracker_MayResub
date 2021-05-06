@@ -1,5 +1,4 @@
 const summaryURL = "https://api.covid19api.com/summary";
-const countryListURL = "https://api.covid19api.com/countries";
 
 const getData = async () => {
     const response = await fetch(summaryURL);
@@ -24,8 +23,7 @@ const writeSummaryToDocument = async () => {
 writeSummaryToDocument();
 
 const fetchCountryName = async (event) => {
-    const response = await fetch(countryListURL);
-    const data = await response.json();
+    const data = await getData();
     let countryNameInput = $("#coutryNameInput").val();
     console.log(data, 'countryName');
     
@@ -40,9 +38,9 @@ const fetchCountryName = async (event) => {
         </div>`);
 
     let foundCountries = [];
-    for(let i = 0; i < data.length; i++) {
-        if(data[i].Country.toLowerCase().includes(countryNameInput.toLowerCase()))
-            foundCountries.push(data[i]);
+    for(let i = 0; i < data.Countries.length; i++) {
+        if(data.Countries[i].Country.toLowerCase().includes(countryNameInput.toLowerCase()))
+            foundCountries.push(data.Countries[i]);
     }
     
     for(let i=0; i < foundCountries.length; i++) {
