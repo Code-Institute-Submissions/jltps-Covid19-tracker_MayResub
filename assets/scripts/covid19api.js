@@ -8,12 +8,6 @@ const getData = async () => {
     return data;
 }
 
-const getActive = async () => {
-    const response = await fetch(activeURL);
-    const data = await response.json();
-    console.log(data, 'active');
-    return data;
-}
 
 const writeSummaryToDocument = async () => {
     const data = await getData();
@@ -64,15 +58,31 @@ const fetchCountryName = async (event) => {
 }
 
 
+const drawCasesHistoryGraph = async (url) => {
+    const response = await fetch(activeURL + url);
+    const data = await response.json();
+    let casesHistory = [];
+
+    for(let i = 0; i < data.length; i++) {
+        casesHistory.push(data[i].Cases);
+    }
+
+    console.log(casesHistory, 'active we are');
+    return data;
+}
+
+
 const selectCountry = async (selectedCountry) => {
-    console.log(selectedCountry);
     const data = await getData();
-    const active = await getActive();
 
     let selectedIndex = data.Countries.findIndex(function(currentValue) {
         return (currentValue.Country == selectedCountry);
     });
     
+    const slug = data.Countries[selectedIndex].Slug;
+    const url = slug + "/status/confirmed";
+
+
     $("#searchCountryData").html(
         `<h6>COVID-19 info for ${selectedCountry}:</6>
         <div class="container">
@@ -111,4 +121,7 @@ const selectCountry = async (selectedCountry) => {
                 </div>    
             </div>
         </div>`);
+    
+    drawCasesHistoryGraph(url);
+    
 }

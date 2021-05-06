@@ -7,7 +7,7 @@ google.charts.setOnLoadCallback(drawRegionsMap);
 async function drawRegionsMap() {
     let countryData = await getData()
     let countryList = [['Country code', 'Country name', 'Total Cases']]
-    for(let i = 1; i < countries.length; i++) {
+    for(let i = 1; i < countryData.Countries.length; i++) {
     countryList.push([countryData.Countries[i].CountryCode, countryData.Countries[i].Country, countryData.Countries[i].TotalConfirmed])
         }
     var data = google.visualization.arrayToDataTable(countryList);
@@ -17,10 +17,10 @@ async function drawRegionsMap() {
         legend: 'none'
     };
 
-    var chart = new google.visualization.GeoChart(document.getElementById('geochart'));
+    var geoChart = new google.visualization.GeoChart(document.getElementById('geochart'));
 
     $(window).resize(function(){
-        chart.draw(data, options);
+        geoChart.draw(data, options);
     });
-    chart.draw(data, options);
+    geoChart.draw(data, options);
 }

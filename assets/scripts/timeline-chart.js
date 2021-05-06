@@ -56,11 +56,11 @@ function drawChart() {
         }
     };
 
-    var chart = new google.charts.Line(document.getElementById('timeline'));
+    var timelineChart = new google.charts.Line(document.getElementById('timeline'));
 
-    chart.draw(data, google.charts.Line.convertOptions(options));
+    timelineChart.draw(data, google.charts.Line.convertOptions(options));
 
     $(window).resize(function() {
-        chart.draw(data, google.charts.Line.convertOptions(options));
+        timelineChart.draw(data, google.charts.Line.convertOptions(options));
     });
 }
