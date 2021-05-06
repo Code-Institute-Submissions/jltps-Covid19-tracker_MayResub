@@ -1,14 +1,19 @@
 const summaryURL = "https://api.covid19api.com/summary";
-
+const activeURL = "https://api.covid19api.com/total/country/"
 
 const getData = async () => {
     const response = await fetch(summaryURL);
     const data = await response.json();
     console.log(data, 'data');
-    countries = data.Countries;
     return data;
 }
 
+const getActive = async () => {
+    const response = await fetch(activeURL);
+    const data = await response.json();
+    console.log(data, 'active');
+    return data;
+}
 
 const writeSummaryToDocument = async () => {
     const data = await getData();
@@ -53,7 +58,7 @@ const fetchCountryName = async (event) => {
     
     for(let i=0; i < foundCountries.length; i++) {
         $("#searchCountryData").append(
-            `<button class="btn btn-info search-country-button" onclick="selectCountry(this.innerHTML)" data-bs-dismiss="modal">${foundCountries[i].Country}</button>`)
+            `<button class="btn btn-info search-country-button" onclick="selectCountry(this.innerHTML)">${foundCountries[i].Country}</button>`)
     }
     console.log(foundCountries, "found country")
 }
@@ -62,11 +67,48 @@ const fetchCountryName = async (event) => {
 const selectCountry = async (selectedCountry) => {
     console.log(selectedCountry);
     const data = await getData();
+    const active = await getActive();
+
     let selectedIndex = data.Countries.findIndex(function(currentValue) {
         return (currentValue.Country == selectedCountry);
     });
-    $("body").html(
-        `<h1>${data.Countries[selectedIndex].Country}</h1>`);
-    console.log(a);
-    console.log(data.Countries[selectedIndex].Country);
+    
+    $("#searchCountryData").html(
+        `<h6>COVID-19 info for ${selectedCountry}:</6>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+                <div class="col">
+                    <div id="total-cases" class="card h-100 bg-light text-center">
+                        <div class="card-header">CASES</div>
+                        <div class="card-body">
+                            <h5 id="cases-number" class="card-title">${data.Countries[selectedIndex].TotalConfirmed}</h5>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col">
+                    <div id="active-cases" class="card h-100 bg-light text-center">
+                        <div class="card-header">ACTIVE</div>
+                        <div class="card-body">
+                            <h5 id="active-number" class="card-title">${data.Countries[selectedIndex].NewConfirmed}</h5>
+                        </div>
+                    </div>
+                </div>   
+                <div class="col">
+                    <div id="deaths" class="card h-100 bg-light text-center">
+                        <div class="card-header">DEATHS</div>
+                        <div class="card-body">
+                            <h5 id="deaths-number" class="card-title">${data.Countries[selectedIndex].TotalDeaths}</h5>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col">
+                    <div id="recovered" class="card h-100 bg-light text-center">
+                        <div class="card-header">RECOVERED</div>
+                        <div class="card-body">
+                            <h5 id="recovered-number" class="card-title">${data.Countries[selectedIndex].TotalRecovered}</h5>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>`);
 }
