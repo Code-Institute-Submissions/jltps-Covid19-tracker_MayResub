@@ -5,7 +5,6 @@ let casesHistory;
 const getData = async () => {
     const response = await fetch(summaryURL);
     const data = await response.json();
-    console.log(data, 'data');
     return data;
 }
 
@@ -25,7 +24,6 @@ writeSummaryToDocument();
 const fetchCountryName = async (event) => {
     const data = await getData();
     let countryNameInput = $("#coutryNameInput").val();
-    console.log(data, 'countryName');
     
     if (!countryNameInput) {
         $("#searchCountryData").html(`<h5>Please enter a Country name</h5>`);
@@ -55,7 +53,6 @@ const fetchCountryName = async (event) => {
         $("#searchCountryData").append(
             `<button class="btn btn-info search-country-button" onclick="selectCountry(this.innerHTML)">${foundCountries[i].Country}</button>`)
     }
-    console.log(foundCountries, "found country")
 }
 
 
@@ -138,19 +135,17 @@ function drawChart() {
     data.addColumn('number', 'New Cases');
      
     let casesRows = [[39, casesHistory[39], (casesHistory[39]-casesHistory[38])]];
-    console.log(casesRows+"BEFORE")
+
     for(let i=40; i < casesHistory.length; i++) {
         casesRows.push([i-40, casesHistory[i], (casesHistory[i]-casesHistory[i-1])]);
     }
 
-    console.log(casesRows+"cases ROWWWS")
     data.addRows(casesRows);
 
     var options = {
         chart: {
             title: 'Pandemic Evolution since March 1st 2020 until today',
             subtitle: 'in number of cases', 
-            legend: 'none'
         },
 
         axes: {
