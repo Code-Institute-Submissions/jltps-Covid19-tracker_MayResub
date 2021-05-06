@@ -71,14 +71,21 @@ const casesHistoryData = async (url) => {
 const selectCountry = async (selectedCountry) => {
     const data = await getData();
 
+    if(!response.ok) {
+        throw new Error(`HTTP Error! Status: ${response.status}`);
+        flash("ERROR");
+    }
+    
+    //Find Index of selected Country
     let selectedIndex = data.Countries.findIndex(function(currentValue) {
         return (currentValue.Country == selectedCountry);
     });
     
+    //Define url (API) argument for selected country
     const slug = data.Countries[selectedIndex].Slug;
     const url = slug + "/status/confirmed";
 
-
+    //Render HTML for selected country stats inside modal
     $("#searchCountryData").html(
         `<div class="row">
             <div class="col-12 col-m6 offset-m3 text-center">
@@ -122,55 +129,59 @@ const selectCountry = async (selectedCountry) => {
             </div>
         </div>`);
     
-casesHistory = await casesHistoryData(url);
+    //Retrieve API history data for selected country
+    casesHistory = await casesHistoryData(url);
 
-google.charts.load('current', { 'packages': ['line'] });
-google.charts.setOnLoadCallback(drawChart);
+    //Render Google Charts timeline graph inside modal
+    google.charts.load('current', { 'packages': ['line'] });
+    google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
+    function drawChart() {
 
-    var data = new google.visualization.DataTable();
-    data.addColumn('number', 'Day');
-    data.addColumn('number', 'Total Cases');
-    data.addColumn('number', 'New Cases');
-     
-    let casesRows = [[39, casesHistory[39], (casesHistory[39]-casesHistory[38])]];
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Day');
+        data.addColumn('number', 'Total Cases');
+        data.addColumn('number', 'New Cases');
+        
+        //Record no.39 is for March 1st 2020
+        let casesRows = [[39, casesHistory[39], (casesHistory[39]-casesHistory[38])]];
 
-    for(let i=40; i < casesHistory.length; i++) {
-        casesRows.push([i-40, casesHistory[i], (casesHistory[i]-casesHistory[i-1])]);
-    }
-
-    data.addRows(casesRows);
-
-    var options = {
-        chart: {
-            title: 'Pandemic Evolution since March 1st 2020 until today',
-            subtitle: 'in number of cases', 
-        },
-
-        series: {
-            0: {axis: 'TotalCases'},
-            1: {axis: 'NewCases'}
-        },
-
-        axes: {
-            x: {
-                0: { side: 'bottom' }
-            }, 
-            y: {
-                TotalCases: {label: 'Total Cases'},
-                NewCases: {label: 'New Cases'}
-            }
+        //Push API data to graph's data table
+        for(let i=40; i < casesHistory.length; i++) {
+            casesRows.push([i-40, casesHistory[i], (casesHistory[i]-casesHistory[i-1])]);
         }
-    };
 
-    var timelineChart = new google.charts.Line(document.getElementById('timeline'));
+        data.addRows(casesRows);
 
-    timelineChart.draw(data, google.charts.Line.convertOptions(options));
+        var options = {
+            chart: {
+                title: 'Pandemic Evolution since March 1st 2020 until today',
+                subtitle: 'in number of cases', 
+            },
+            //Make graph dual-Y 
+            series: {
+                0: {axis: 'TotalCases'},
+                1: {axis: 'NewCases'}
+            },
 
-    $(window).resize(function() {
+            axes: {
+                x: {
+                    0: { side: 'bottom' }
+                }, 
+                y: {
+                    TotalCases: {label: 'Total Cases'},
+                    NewCases: {label: 'New Cases'}
+                }
+            }
+        };
+
+        var timelineChart = new google.charts.Line(document.getElementById('timeline'));
+
         timelineChart.draw(data, google.charts.Line.convertOptions(options));
-    });
-}
-}
 
+        //Make graph responsive to window resizing
+        $(window).resize(function() {
+            timelineChart.draw(data, google.charts.Line.convertOptions(options));
+        });
+    }
+}
