@@ -148,9 +148,18 @@ function drawChart() {
             subtitle: 'in number of cases', 
         },
 
+        series: {
+            0: {axis: 'TotalCases'},
+            1: {axis: 'NewCases'}
+        },
+
         axes: {
             x: {
                 0: { side: 'bottom' }
+            }, 
+            y: {
+                TotalCases: {label: 'Total Cases'},
+                NewCases: {label: 'New Cases'}
             }
         }
     };
