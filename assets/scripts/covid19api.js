@@ -1,5 +1,6 @@
 const summaryURL = "https://api.covid19api.com/summary";
 
+
 const getData = async () => {
     const response = await fetch(summaryURL);
     const data = await response.json();
@@ -7,6 +8,7 @@ const getData = async () => {
     countries = data.Countries;
     return data;
 }
+
 
 const writeSummaryToDocument = async () => {
     const data = await getData();
@@ -16,7 +18,9 @@ const writeSummaryToDocument = async () => {
     document.getElementById("recovered-number").innerHTML = data.Global.TotalRecovered.toLocaleString();
 }
   
+
 writeSummaryToDocument();
+
 
 const fetchCountryName = async (event) => {
     const data = await getData();
@@ -54,14 +58,15 @@ const fetchCountryName = async (event) => {
     console.log(foundCountries, "found country")
 }
 
+
 const selectCountry = async (selectedCountry) => {
     console.log(selectedCountry);
     const data = await getData();
-    let a = data.Countries.findIndex(function(currentValue) {
+    let selectedIndex = data.Countries.findIndex(function(currentValue) {
         return (currentValue.Country == selectedCountry);
     });
     $("body").html(
-        `<h1>${data.Countries[a].Country}</h1>`);
+        `<h1>${data.Countries[selectedIndex].Country}</h1>`);
     console.log(a);
-    console.log(data.Countries[a].Country);
+    console.log(data.Countries[selectedIndex].Country);
 }
