@@ -1,6 +1,5 @@
 const summaryURL = "https://api.covid19api.com/summary";
 const activeURL = "https://api.covid19api.com/total/country/"
-let casesHistory;
 
 const getData = async (url = null) => {
     const apiURL = url || summaryURL;
