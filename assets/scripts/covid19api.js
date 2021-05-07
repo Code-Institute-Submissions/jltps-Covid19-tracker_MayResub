@@ -62,11 +62,6 @@ const selectCountry = async (selectedCountry) => {
     //Define url (API) argument for selected country
     const url = selectedCountry + "/status/confirmed";
 
-    // if(!response.ok) {
-    //     throw new Error(`HTTP Error! Status: ${response.status}`);
-    //     flash("ERROR");
-    // }
-    
 
     //Render HTML for selected country stats inside modal
     $("#searchCountryData").html(
