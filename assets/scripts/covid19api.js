@@ -57,18 +57,6 @@ const fetchCountryName = async (event) => {
 }
 
 
-const casesHistoryData = async (url) => {
-    const response = await fetch(activeURL + url);
-    const data = await response.json();
-    let cases = [];
-
-    for(let i in data) {
-        cases.push(data[i].Cases);
-    }
-    return cases;
-}
-
-
 const selectCountry = async (selectedCountry) => {
     const data = await getData(`https://api.covid19api.com/country/${selectedCountry}`);
     const countrySelectedData = data[data.length - 1];
@@ -125,8 +113,6 @@ const selectCountry = async (selectedCountry) => {
             </div>
         </div>`);
     
-    //Retrieve API history data for selected country
-    casesHistory = await casesHistoryData(url);
 
     //Render Google Charts timeline graph inside modal
     google.charts.load('current', { 'packages': ['line'] });
