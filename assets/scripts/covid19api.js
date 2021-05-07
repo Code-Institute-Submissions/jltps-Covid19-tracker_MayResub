@@ -2,8 +2,9 @@ const summaryURL = "https://api.covid19api.com/summary";
 const activeURL = "https://api.covid19api.com/total/country/"
 let casesHistory;
 
-const getData = async () => {
-    const response = await fetch(summaryURL);
+const getData = async (url = null) => {
+    const apiURL = url || summaryURL;
+    const response = await fetch(apiURL);
     const data = await response.json();
     return data;
 }
