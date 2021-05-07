@@ -52,7 +52,7 @@ const fetchCountryName = async (event) => {
     
     for(let i=0; i < foundCountries.length; i++) {
         $("#searchCountryData").append(
-            `<button class="btn btn-info search-country-button" onclick="selectCountry(this.innerHTML)">${foundCountries[i].Country}</button>`)
+            `<button class="btn btn-info search-country-button" onclick="selectCountry('${foundCountries[i].Slug}')">${foundCountries[i].Country}</button>`)
     }
 }
 
