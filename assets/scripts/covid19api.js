@@ -77,11 +77,9 @@ const selectCountry = async (selectedCountry) => {
     //     flash("ERROR");
     // }
     
-    //Find Index of selected Country
-    let selectedIndex = data.Countries.findIndex(function(currentValue) {
-        return (currentValue.Country == selectedCountry);
-    });
-    
+    // const countrySelected = data.Countries.find((c) => c.Country === selectedCountry)||{};
+    const countrySelectedData = data[data.length - 1];
+
     //Define url (API) argument for selected country
     const slug = data.Countries[selectedIndex].Slug;
     const url = slug + "/status/confirmed";
