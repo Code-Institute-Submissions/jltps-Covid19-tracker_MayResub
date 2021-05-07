@@ -71,18 +71,15 @@ const casesHistoryData = async (url) => {
 
 const selectCountry = async (selectedCountry) => {
     const data = await getData(`https://api.covid19api.com/country/${selectedCountry}`);
+    const countrySelectedData = data[data.length - 1];
+    //Define url (API) argument for selected country
+    const url = selectedCountry + "/status/confirmed";
 
     // if(!response.ok) {
     //     throw new Error(`HTTP Error! Status: ${response.status}`);
     //     flash("ERROR");
     // }
     
-    // const countrySelected = data.Countries.find((c) => c.Country === selectedCountry)||{};
-    const countrySelectedData = data[data.length - 1];
-
-    //Define url (API) argument for selected country
-    const slug = data.Countries[selectedIndex].Slug;
-    const url = slug + "/status/confirmed";
 
     //Render HTML for selected country stats inside modal
     $("#searchCountryData").html(
