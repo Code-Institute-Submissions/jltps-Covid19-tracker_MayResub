@@ -120,10 +120,10 @@ const selectCountry = async (selectedCountry) => {
 
     function drawChart() {
 
-        var data = new google.visualization.DataTable();
-        data.addColumn('number', 'Day');
-        data.addColumn('number', 'Total Cases');
-        data.addColumn('number', 'New Cases');
+        var chartData = new google.visualization.DataTable();
+        chartData.addColumn('number', 'Day');
+        chartData.addColumn('number', 'Total Cases');
+        chartData.addColumn('number', 'New Cases');
         
         //Record no.39 is for March 1st 2020
         let casesRows = [[39, casesHistory[39], (casesHistory[39]-casesHistory[38])]];
@@ -133,7 +133,7 @@ const selectCountry = async (selectedCountry) => {
             casesRows.push([i-40, casesHistory[i], (casesHistory[i]-casesHistory[i-1])]);
         }
 
-        data.addRows(casesRows);
+        chartData.addRows(casesRows);
 
         var options = {
             chart: {
@@ -159,11 +159,11 @@ const selectCountry = async (selectedCountry) => {
 
         var timelineChart = new google.charts.Line(document.getElementById('timeline'));
 
-        timelineChart.draw(data, google.charts.Line.convertOptions(options));
+        timelineChart.draw(chartData, google.charts.Line.convertOptions(options));
 
         //Make graph responsive to window resizing
         $(window).resize(function() {
-            timelineChart.draw(data, google.charts.Line.convertOptions(options));
+            timelineChart.draw(chartData, google.charts.Line.convertOptions(options));
         });
     }
 }
