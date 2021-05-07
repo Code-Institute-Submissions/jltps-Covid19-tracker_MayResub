@@ -126,11 +126,11 @@ const selectCountry = async (selectedCountry) => {
         chartData.addColumn('number', 'New Cases');
         
         //Record no.39 is for March 1st 2020
-        let casesRows = [[39, casesHistory[39], (casesHistory[39]-casesHistory[38])]];
+        let casesRows = [[1, data[39].Confirmed, (data[39].Confirmed - data[38].Confirmed)]];
 
         //Push API data to graph's data table
-        for(let i=40; i < casesHistory.length; i++) {
-            casesRows.push([i-40, casesHistory[i], (casesHistory[i]-casesHistory[i-1])]);
+        for(let i=40; i < data.length; i++) {
+            casesRows.push([i-38, data[i].Confirmed, (data[i].Confirmed - data[i-1].Confirmed)]);
         }
 
         chartData.addRows(casesRows);
