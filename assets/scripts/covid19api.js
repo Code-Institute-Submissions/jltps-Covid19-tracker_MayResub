@@ -70,12 +70,12 @@ const casesHistoryData = async (url) => {
 
 
 const selectCountry = async (selectedCountry) => {
-    const data = await getData();
+    const data = await getData(`https://api.covid19api.com/country/${selectedCountry}`);
 
-    if(!response.ok) {
-        throw new Error(`HTTP Error! Status: ${response.status}`);
-        flash("ERROR");
-    }
+    // if(!response.ok) {
+    //     throw new Error(`HTTP Error! Status: ${response.status}`);
+    //     flash("ERROR");
+    // }
     
     //Find Index of selected Country
     let selectedIndex = data.Countries.findIndex(function(currentValue) {
