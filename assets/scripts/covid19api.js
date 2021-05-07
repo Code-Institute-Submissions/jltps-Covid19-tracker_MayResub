@@ -153,6 +153,11 @@ const selectCountry = async (selectedCountry) => {
                     TotalCases: {label: 'Total Cases'},
                     NewCases: {label: 'New Cases'}
                 }
+            },
+            vAxis: {
+                viewWindow: {
+                    min: 0
+                }
             }
         };
 
