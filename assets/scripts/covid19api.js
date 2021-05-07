@@ -85,7 +85,7 @@ const selectCountry = async (selectedCountry) => {
     $("#searchCountryData").html(
         `<div class="row">
             <div class="col-12 col-m6 offset-m3 text-center">
-                <h4 class="border border-primary border-5 rounded-pill bg-light">COVID-19 info for ${selectedCountry}:</h4>
+                <h4 class="border border-primary border-5 rounded-pill bg-light">COVID-19 info for ${countrySelectedData.Country}:</h4>
             </div>
         </div>
         <div class="container">
@@ -94,7 +94,7 @@ const selectCountry = async (selectedCountry) => {
                     <div id="total-cases" class="card h-100 bg-light text-center">
                         <div class="card-header">CASES</div>
                         <div class="card-body">
-                            <h5 id="cases-number" class="card-title">${data.Countries[selectedIndex].TotalConfirmed}</h5>
+                            <h5 id="cases-number" class="card-title">${countrySelectedData.Confirmed}</h5>
                         </div>
                     </div>
                 </div>    
@@ -102,7 +102,7 @@ const selectCountry = async (selectedCountry) => {
                     <div id="active-cases" class="card h-100 bg-light text-center">
                         <div class="card-header">ACTIVE</div>
                         <div class="card-body">
-                            <h5 id="active-number" class="card-title">${data.Countries[selectedIndex].NewConfirmed}</h5>
+                            <h5 id="active-number" class="card-title">${countrySelectedData.Active}</h5>
                         </div>
                     </div>
                 </div>   
@@ -110,7 +110,7 @@ const selectCountry = async (selectedCountry) => {
                     <div id="deaths" class="card h-100 bg-light text-center">
                         <div class="card-header">DEATHS</div>
                         <div class="card-body">
-                            <h5 id="deaths-number" class="card-title">${data.Countries[selectedIndex].TotalDeaths}</h5>
+                            <h5 id="deaths-number" class="card-title">${countrySelectedData.Deaths}</h5>
                         </div>
                     </div>
                 </div>    
@@ -118,7 +118,7 @@ const selectCountry = async (selectedCountry) => {
                     <div id="recovered" class="card h-100 bg-light text-center">
                         <div class="card-header">RECOVERED</div>
                         <div class="card-body">
-                            <h5 id="recovered-number" class="card-title">${data.Countries[selectedIndex].TotalRecovered}</h5>
+                            <h5 id="recovered-number" class="card-title">${countrySelectedData.Recovered}</h5>
                         </div>
                     </div>
                 </div>    
