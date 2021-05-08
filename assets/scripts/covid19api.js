@@ -1,12 +1,11 @@
 const summaryURL = "https://api.covid19api.com/summary";
-const activeURL = "https://api.covid19api.com/total/country/"
 
 const getData = async (url = null) => {
     const apiURL = url || summaryURL;
     const response = await fetch(apiURL);
     const data = await response.json();
     return data;
-}
+};
 
 
 const writeSummaryToDocument = async () => {
@@ -15,7 +14,7 @@ const writeSummaryToDocument = async () => {
     document.getElementById("active-number").innerHTML = data.Global.NewConfirmed.toLocaleString();
     document.getElementById("deaths-number").innerHTML = data.Global.TotalDeaths.toLocaleString();
     document.getElementById("recovered-number").innerHTML = data.Global.TotalRecovered.toLocaleString();
-}
+};
   
 
 writeSummaryToDocument();
@@ -51,16 +50,14 @@ const fetchCountryName = async (event) => {
     
     for(let i=0; i < foundCountries.length; i++) {
         $("#searchCountryData").append(
-            `<button class="btn btn-info search-country-button" onclick="selectCountry('${foundCountries[i].Slug}')">${foundCountries[i].Country}</button>`)
+            `<button class="btn btn-info search-country-button" onclick="selectCountry('${foundCountries[i].Slug}')">${foundCountries[i].Country}</button>`);
     }
-}
+};
 
 
 const selectCountry = async (selectedCountry) => {
     const data = await getData(`https://api.covid19api.com/country/${selectedCountry}`);
     const countrySelectedData = data[data.length - 1];
-    //Define url (API) argument for selected country
-    const url = selectedCountry + "/status/confirmed";
 
 
     //Render HTML for selected country stats inside modal
@@ -165,4 +162,4 @@ const selectCountry = async (selectedCountry) => {
             timelineChart.draw(chartData, google.charts.Line.convertOptions(options));
         });
     }
-}
+};
