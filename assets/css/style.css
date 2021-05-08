@@ -23,14 +23,11 @@ body {
 }
 
 
-#country-name {
-    color: #1e2225;
-}
-
+#country-name,
 #country-population {
     color: #1e2225;
+    padding-top: 10px;
 }
-
 
 #total-cases {
     color: #c841a6;
@@ -116,11 +113,6 @@ footer {
     #footer-text {
         font-size: 12px;
         font-weight: 700;
-        padding-top: 5px;
-    }
-
-    #country-name, 
-    #country-population {
         padding-top: 5px;
     }
   }
