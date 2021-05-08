@@ -110,12 +110,17 @@ footer {
     color: #cf2626;
 }
 
-/* ------------------------------- Media queries ------------------------------------------- */
+/* ------------------------------- Media Queries ------------------------------------------- */
 
 @media only screen and (max-width: 550px) {
     #footer-text {
         font-size: 12px;
         font-weight: 700;
+        padding-top: 5px;
+    }
+
+    #country-name, 
+    #country-population {
         padding-top: 5px;
     }
   }
