@@ -20,7 +20,8 @@ issues: x  in modal not displaying -->
 
 # About COVID-19 Tracker 
 
-With the global pandemic situation it is very important to have reliable sources of information and stay up to date with the development of the disease.
+With the global pandemic situation it is very important to have reliable sources of information and stay up to date on the development of the disease.
+
 COVID-19 Tracker is a website developed with that premise in mind, and it is a useful tool for anyone who needs to travel to a foreign country and needs a panorama of how this country is doing. It is also perfect for anyone who wants out of interest or curiosity to learn the stats of a specific country or even just a quick glance at the global situation.
  
 ## User Interface / User Experience (UI/UX)
@@ -31,10 +32,10 @@ Most of the design elements of this project were built using [Bootstrap 5](https
 
 #### UI
 COVID-19 Tracker is not meant to be a source of extensive data content, but a quick to use page that instantly gives you a general awareness of the disease's evolution by highlighting the main stats.
-So the initial approach was to build a single page 'in-your-face' design with all the information clearly displaying on screen, complemented with visually rich images and interactive charts.
+So the initial approach was to build a single page 'in-your-face' design with all the information clearly displaying on screen, complemented with visually rich and interactive charts.
 
 ##### UI Refactoring
-During the development stage, while testing different display options I realized that in small screens could become somehow packed with lots of visual elements, mainly due to both the geo chart and timeline chart being displayed at the same time.
+During the development stage, while testing different display options I realized that in small screens the website could become somehow packed with lots of visual elements, mainly due to both the geo chart and timeline chart being displayed at the same time.
 So the solution found was to move all the search content to inside a pop-up modal box that displays the interactive search results and also all the specific stats and chart for the selected country.
 This makes for a much more visually appealing result while making the overall experience a lot better  for the user.
 
@@ -64,7 +65,7 @@ As the data presented to the user is the most important part of the project, eve
 Making sure that all these colours combined with each other as well as picking the right shade for each was achieved using [Coolors](https://coolors.co/)
 
 
-During the development process I felt that something was lacking in terms of colour, so I added a very light blue (#e3f2fd) to the top navbar and footer, and this made the whole page feel more alive and pleasing to the eyes.
+During the development process I felt that something was lacking in terms of colour, so I added a very light blue (#e3f2fd) to the top navbar and footer, and this made the whole page feel more alive and pleasing to the eye.
 
 
 #### Typography
@@ -75,7 +76,7 @@ The font chosen is Google's [Roboto](https://fonts.google.com/specimen/Roboto) a
 #### Charts
 <h1 align="center"><img src="./assets/images/readme/CHART.jpg" /></h1>
 
-The page has a timeline chart and a geo-chart both from [Google Charts](https://developers.google.com/chart/). Both are interactive and display a good amount of aditional information while hovering its elements.
+The page has a timeline chart and a geo-chart both from [Google Charts](https://developers.google.com/chart/). These are simple yet effective, with a good amount interactiveness while displaying aditional information while hovering its elements.
 
 
 #### Logo
@@ -117,7 +118,7 @@ This is a short description of the main features implemented in the project, and
 - **Geo Chart Hover** - displays the number of cases in the hovered country.
 - **Timeline Chart** - a visual display of the pandemic evolution through time in the selected country.
 - **Timeline Chart Hover** - displays the number of cases at that day when hovering the chart line.
-- **Timeline Chart Dual Y scale** - has 2 scales on the Y axis, to better represent the impact of new cases in the global evolution.
+- **Timeline Chart Dual Y scale** - has 2 scales on the Y axis, to better represent the impact of new cases in the case count evolution.
 - **Real time information** - all the information displayed is updated when the page is loaded.
 - **Custom Favicon** - the website displays a custom favicon in the browser tab 
 
@@ -140,36 +141,36 @@ Despite that, I had a number of issues with the data retrieved, which are detail
 
 <h1 align="center"><img src="./assets/images/readme/API-bug-noActiveCases.jpg" /></h1>
 
-This doesn't happen all the time, but it happens lots of times in many countries that have thousands of active cases.
+This doesn't happen all the time, but it has happened lots of times in testing, in countries that have thousands of active cases.
 It could be because of the rate limitations, but it happens always in the active field and no other, and always in the same countries.
 
 ### Issue #2 - Decrease in the number of total cases in some countries
 
 <h1 align="center"><img src="./assets/images/readme/API-bug-Australia.jpg" /></h1>
 
-Several countries show a decrease in the total cases number, which cannot be right. This leads to a display of negative new cases in the graph, which has been addressed by not showing negative scale.
+Several countries show a decrease in the total cases number, which cannot be right. This leads to a display of negative new cases in the graph, which has been addressed by not showing negative scale. The screenshot above was taken before changing the scale.
 
 
 ### Issue #3 - Abnormal new cases number
 
 <h1 align="center"><img src="./assets/images/readme/API-abnormal-newcases-number.jpg" /></h1>
 
-A few countries abnormal spikes in the new cases number. There are only a few countries where this happens, and it could be coherent with the country's official data, I haven't checked that fact.
+Some countries show abnormal spikes in the new cases number. There are only a few countries where this happens, and it could be coherent with the country's official data, I haven't checked that fact.
 
 ## Technologies Used
 
 In this section there is a list of all the technologies used to build this project.
 
 - [HTML](https://dev.w3.org/html5/spec-LC/) - to build the templates.
-- [Javascript](https://www.javascript.com/) - javaScript and JQuery initialize some Materialize components like modals and sidenav. 
-- [Jquery](https://jquery.com/)
-- [CSS](https://www.w3.org/Style/CSS/specs.en.html) - to add  aditional styling.
+- [Javascript](https://www.javascript.com/) - as the scripting language. 
+- [Jquery](https://jquery.com/) - a JavaScript library to make some manipulations and handlings easier.
+- [CSS](https://www.w3.org/Style/CSS/specs.en.html) - the styling language.
 - [Bootstrap 5](https://getbootstrap.com/) - CSS & JS library.
 - [FontAwesome](https://fontawesom.com/) - for icons.
 - [Git](https://git-scm.com/) - for version control.
 - [GitHub](https://github.com) - for cloud repository storage.
 - [Netlify](https://www.netlify.com/) - for deployment of production application.
-- [Covid 19 API](https://covid19api.com/) - for data source.
+- [Covid 19 API](https://covid19api.com/) - as the data source.
 - [VS Code](https://code.visualstudio.com/) - IDE of choice.
 - [Adobe XD](https://www.adobe.com/products/xd.html) - for wireframes.
 - [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) - for image manipulation.
@@ -183,6 +184,22 @@ In this section there is a list of all the technologies used to build this proje
  This section details all the testing that was made to ensure the good performance of the website.
  
  ### User Stories testing
+
+1. I want to be able to understand the purpose of the site.
+   - The purpose is easily indentifiable by the website's branding, information displayed and the golbal map
+2. I want to the website to be visually pleasing.
+   - With a minimalistic design, light colour scheme, clear separation between the elements and graphic content this website is visually pleasing
+3. I want to the website look good no matter the device I'm using.
+   -
+4. I want to get a global overview instantly.
+5. I want to quickly have information about a specific country.
+6. I want to be able to search for any country in order to get aditional information.
+7. I want the search to easy.
+8. I want the data to be displayed in images so I can understand it easily.
+9.  I want to be able to know the pandemic evolution in a specific country. 
+10. I want to intuitively navigate through the site to browse the content.
+11. I want to quickly get the information I'm looking for.
+12. I liked the website so much that I want to know more about the developer.
 
  - #### Common user stories
 
@@ -206,7 +223,8 @@ Result: No errors. Got undefined variable warnings because of jQuery and Google 
 
 #### HTML W3C validation
 
-Result: Tested all HTML files, and apart from Jinja related errors, no other errors were found.
+Result: No errors found.
+
 <h1 align="center"><img src="./assets/images/readme/W3C-HTML-validation.jpg" /></h1>
 
 #### CSS W3C validation
@@ -235,6 +253,16 @@ It's common, due to the API's rate limitation, to get a 429 error response. The 
 <h1 align="center"><img src="./assets/images/readme/ISSUE-modalcloseicon.jpg" /></h1>
 
 It has been this way since I pasted the raw code from Bootstrap's documentation page, and I still haven't figured out what is causing this.
+
+#### Timeline Chart legend doesn't work on top or bottom
+
+According to Google's documentation, this can be done by adding the following inside options:
+```
+legend: {position: 'top'}
+```
+But while left or right work fine, top and bottom have no effect at all. This is a known issue by the community.
+This positioning was needed because in mobile view, with a legend, the chart display size is way too small.
+So the workaround for this issue was to remove Google's legend and adding a legend image. The drawback is that legend's insteractivity was lost.
 
 ## Deployment
 
@@ -286,7 +314,7 @@ Netlify deployment steps, including the ones that deal with the Maps key, are li
 
 ### Acknowledgements
 
-- To make Google Charts and Maps responsive to windows resize I used the code in [Flo's](https://flopreynat.com/blog/2015-09-08-make-google-charts-responsive) blog post
+- To make Google Charts and Maps responsive to window resizing I used the code in this [Flo's blog post](https://flopreynat.com/blog/2015-09-08-make-google-charts-responsive).
 - [Stack Overflow](https://pt.stackoverflow.com/) was used numerous times to better understand and implement code, especially with async await Javacript functions.
 
 
