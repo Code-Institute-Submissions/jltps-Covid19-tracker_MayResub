@@ -113,15 +113,15 @@ const selectCountry = async (selectedCountry) => {
 
         var chartData = new google.visualization.DataTable();
         chartData.addColumn('number', 'Day');
-        chartData.addColumn('number', 'Total Cases');
         chartData.addColumn('number', 'New Cases');
+        chartData.addColumn('number', 'Total Cases');
         
         //Record no.39 is for March 1st 2020
         let casesRows = [[1, data[39].Confirmed, (data[39].Confirmed - data[38].Confirmed)]];
 
         //Push API data to graph's data table
         for(let i=40; i < data.length; i++) {
-            casesRows.push([i-38, data[i].Confirmed, (data[i].Confirmed - data[i-1].Confirmed)]);
+            casesRows.push([i-38,(data[i].Confirmed - data[i-1].Confirmed), data[i].Confirmed]);
         }
 
         chartData.addRows(casesRows);
@@ -133,8 +133,8 @@ const selectCountry = async (selectedCountry) => {
             },
             //Make graph dual-Y 
             series: {
-                0: {axis: 'TotalCases'},
-                1: {axis: 'NewCases'}
+                0: {axis: 'NewCases'},
+                1: {axis: 'TotalCases'}
             },
 
             axes: {
@@ -146,6 +146,7 @@ const selectCountry = async (selectedCountry) => {
                     NewCases: {label: 'New Cases'}
                 }
             },
+            
             vAxis: {
                 viewWindow: {
                     min: 0
