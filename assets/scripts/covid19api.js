@@ -150,7 +150,9 @@ const selectCountry = async (selectedCountry) => {
                 viewWindow: {
                     min: 0
                 }
-            }
+            },
+            
+            legend: {position: 'none'}
         };
 
         var timelineChart = new google.charts.Line(document.getElementById('timeline'));
