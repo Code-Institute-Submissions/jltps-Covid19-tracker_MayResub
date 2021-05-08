@@ -157,6 +157,12 @@ Several countries show a decrease in the total cases number, which cannot be rig
 
 Some countries show abnormal spikes in the new cases number. There are only a few countries where this happens, and it could be coherent with the country's official data, I haven't checked that fact.
 
+### Issue #4 - Abnormal Denmark data
+
+<h1 align="center"><img src="./assets/images/readme/API-bug-denmark.jpg" /></h1>
+
+For some reason Denmark's data object in the API has at the time of the test over 1400 entries, while all others have a little under 500, one for each day starting from January 22th 2020. Until now this is the only country where this issue was found.
+
 ## Technologies Used
 
 In this section there is a list of all the technologies used to build this project.
