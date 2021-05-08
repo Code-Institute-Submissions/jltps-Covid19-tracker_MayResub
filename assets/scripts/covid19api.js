@@ -163,5 +163,13 @@ const selectCountry = async (selectedCountry) => {
         $(window).resize(function() {
             timelineChart.draw(chartData, google.charts.Line.convertOptions(options));
         });
+
+        $("#timeline-legend").html(
+            `<div class="row">
+                <div class="col text-center">
+                    <img id="timeline-legend-img" src="./assets/images/timeline-chart-legend.jpg" alt="Timeline Chart Legend">
+                </div>
+            </div>`
+        );
     }
 };
