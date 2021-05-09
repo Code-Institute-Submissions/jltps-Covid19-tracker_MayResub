@@ -1,33 +1,25 @@
-<!-- - hide Maps API key in config.js need to send it in submission -->
-<!-- - https://flopreynat.com/blog/2015-09-08-make-google-charts-responsive
-- https://www.favicon-generator.org/
-
-issues: x  in modal not displaying --> 
-
-
 <h1 align="center">--- COVID-19 Tracker ---</h1>
 <h1 align="center"><img src="./assets/images/C19T-logo.png" /></h1>
 
 ## :link:[ Live Website on Netlify](https://objective-lumiere-b6295b.netlify.app/)
 
 # 
-# Table of Contents
-1. [About](#AboutCOVID-19Tracker)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
 
+<br>
 
 # About COVID-19 Tracker 
 
 With the global pandemic situation it is very important to have reliable sources of information and stay up to date on the development of the disease.
 
 COVID-19 Tracker is a website developed with that premise in mind, and it is a useful tool for anyone who needs to travel to a foreign country and needs a panorama of how this country is doing. It is also perfect for anyone who wants out of interest or curiosity to learn the stats of a specific country or even just a quick glance at the global situation.
- 
-## User Interface / User Experience (UI/UX)
-<h1 align="center"><img src="./assets/images/readme/MOCKUP.jpg" /></h1>
 
+## User Interface / User Experience (UI/UX)
+#
+
+<h1 align="center"><img src="./assets/images/readme/MOCKUP.jpg" /></h1>
+ 
 ### Design
+
 Most of the design elements of this project were built using [Bootstrap 5](https://getbootstrap.com/) framework, so every element looks beautiful, intuitively placed and responsive to the different screen sizes.
 
 #### UI
@@ -97,12 +89,11 @@ To make the users' experience more pleasant and the navigation more intuitive a 
     4. I want to get a global overview instantly.
     5. I want to quickly have information about a specific country.
     6. I want to be able to search for any country in order to get aditional information.
-    7. I want the search to easy.
+    7. I want the search to be easy.
     8. I want the data to be displayed in images so I can understand it easily.
     9. I want to be able to know the pandemic evolution in a specific country. 
     10. I want to intuitively navigate through the site to browse the content.
-    11. I want to quickly get the information I'm looking for.
-    12. I liked the website so much that I want to know more about the developer.
+    11. I liked the website so much that I want to know more about the developer.
 
 ## Features
 
@@ -192,33 +183,68 @@ In this section there is a list of all the technologies used to build this proje
  ### User Stories testing
 
 1. I want to be able to understand the purpose of the site.
-   - The purpose is easily indentifiable by the website's branding, information displayed and the golbal map
+   - The purpose is easily indentifiable by the website's branding, information displayed and the golbal map.
 2. I want to the website to be visually pleasing.
-   - With a minimalistic design, light colour scheme, clear separation between the elements and graphic content this website is visually pleasing
+   - With a minimalistic design, light colour scheme, clear separation between the elements and graphic content this website is visually pleasing.
 3. I want to the website look good no matter the device I'm using.
-   -
+   - Everything in the website is screen responsive, it will automatically adjust to the device I'm using.
 4. I want to get a global overview instantly.
+   - Landing on the website immediatly gives an overview of the global pandemic situation.
 5. I want to quickly have information about a specific country.
+   - If I hover with the mouse over a country, or touch it on a touch device, I get information on the total number of cases for that country.
 6. I want to be able to search for any country in order to get aditional information.
-7. I want the search to easy.
+   - A search functionality is implemented with an easy to find button on the top right corner of the page.
+7. I want the search to be easy.
+    - In the search box, just start typing the name of the country and it instantly shows the corresponding results.
 8. I want the data to be displayed in images so I can understand it easily.
+   - There is a geo chart and a timeline chart to provide a graphic representation of the data.
 9.  I want to be able to know the pandemic evolution in a specific country. 
+    - Search for the country name, click the country button, and timeline information of the pandemic evolution in the selected country is displayed.
 10. I want to intuitively navigate through the site to browse the content.
-11. I want to quickly get the information I'm looking for.
-12. I liked the website so much that I want to know more about the developer.
-
- - #### Common user stories
-
-- #### As a first time visitor
-    
-- #### As a returning user
-- #### As an admin
+    - The search, country select and close buttons are easy to find and exactly where you expect them to be.
+11. I liked the website so much that I want to know more about the developer.
+    - The developer's contacts are linked in the icons on the page footer.
  
 ### Manual Testing
 
-### Code testing
-
 The following tests were performed to the code:
+
+1. **Elements display and responsiveness**
+   1. Tested on desktop @1080p resolution
+   2. Tested on desktop @1440p resolution
+   3. Tested on tablet
+   4. Tested on smartphone
+        - Overview cards text adjusted with paddings for all devices
+        - Footer text adjusted with paddings for smaller devices
+        - Timeline chart's legend removed for better display on smaller devices
+        - Swapped display line colours of new cases and total cases in timeline chart for better visualization on all devices, with bigger impact on smaller ones
+2. **Browser testing**
+   1. Tested on Google Chrome Desktop
+   2. Tested on Microsoft Edge Desktop
+   3. Tested on Firefox Desktop
+   4. Tested on Google Chrome Mobile
+   5. Tested on Firefox Mobile
+       - Further browser testing needed
+3. **Links, buttons and inputs**
+   1. Tested search country button
+   2. Tested search country input
+   3. Tested country select button
+   4. Tested modal close icon button
+   5. Tested modal close button
+   6. Tested footer link buttons
+        - Modal close icon not displaying correctly, as described in known issues section
+4. **Functionality**
+   1. Tested API data display in global informations cards
+   2. Tested geo chart hover
+   3. Tested search results display while typing characters
+        - Sometimes results don't display due to an HTTP 429 error, as described in known issues section
+   4. Tested selecting country in search
+   5. Tested API data display in selected country
+   6. Tested timeline chart hover
+   7. Tested a new search after a country is selected
+        - Some issues related to data were found, as described in the API section
+
+### Code testing
 
 #### JavaScript JSHint validation
 
@@ -269,6 +295,10 @@ legend: {position: 'top'}
 But while left or right work fine, top and bottom have no effect at all. This is a known issue by the community.
 This positioning was needed because in mobile view, with a legend, the chart display size is way too small.
 So the workaround for this issue was to remove Google's legend and adding a legend image. The drawback is that legend's insteractivity was lost.
+
+#### On touch devices, touching a country on the map returns to the top of the page.
+
+This can be annoying in smaller devices because you have to scroll down again, but this issue isn't perceived on tablets os larger touch devices. I haven't found a solution for it yet.
 
 ## Deployment
 
