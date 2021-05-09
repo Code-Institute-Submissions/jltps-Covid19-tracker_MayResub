@@ -3,8 +3,6 @@
 
 ## :link:[ Live Website on Netlify](https://objective-lumiere-b6295b.netlify.app/)
 
-# 
-
 <br>
 
 # About COVID-19 Tracker 
@@ -14,7 +12,6 @@ With the global pandemic situation it is very important to have reliable sources
 COVID-19 Tracker is a website developed with that premise in mind, and it is a useful tool for anyone who needs to travel to a foreign country and needs a panorama of how this country is doing. It is also perfect for anyone who wants out of interest or curiosity to learn the stats of a specific country or even just a quick glance at the global situation.
 
 ## User Interface / User Experience (UI/UX)
-#
 
 <h1 align="center"><img src="./assets/images/readme/MOCKUP.jpg" /></h1>
  
@@ -119,7 +116,7 @@ This is a short description of the main features implemented in the project, and
 - **Use a different API** - the chosen API isn't the most reliable (see details in the API section).
 - **Add links to local COVID pages** - provide links for more in depth information of selected countries.
 
-## API
+## Data Source (API)
 
 <h1 align="center"><img src="./assets/images/readme/API.jpg" /></h1>
 
@@ -128,27 +125,31 @@ This version doesn't give access to all the data sources and is rate limited, bu
 
 Despite that, I had a number of issues with the data retrieved, which are detailed below.
 
-### Issue #1 - 0 Active cases in many countries
+### API Issues
+
+<br>
+
+#### Issue #1 - 0 Active cases in many countries
 
 <h1 align="center"><img src="./assets/images/readme/API-bug-noActiveCases.jpg" /></h1>
 
 This doesn't happen all the time, but it has happened lots of times in testing, in countries that have thousands of active cases.
 It could be because of the rate limitations, but it happens always in the active field and no other, and always in the same countries.
 
-### Issue #2 - Decrease in the number of total cases in some countries
+#### Issue #2 - Decrease in the number of total cases in some countries
 
 <h1 align="center"><img src="./assets/images/readme/API-bug-Australia.jpg" /></h1>
 
 Several countries show a decrease in the total cases number, which cannot be right. This leads to a display of negative new cases in the graph, which has been addressed by not showing negative scale. The screenshot above was taken before changing the scale.
 
 
-### Issue #3 - Abnormal new cases number
+#### Issue #3 - Abnormal new cases number
 
 <h1 align="center"><img src="./assets/images/readme/API-abnormal-newcases-number.jpg" /></h1>
 
 Some countries show abnormal spikes in the new cases number. There are only a few countries where this happens, and it could be coherent with the country's official data, I haven't checked that fact.
 
-### Issue #4 - Abnormal Denmark data
+#### Issue #4 - Abnormal Denmark data
 
 <h1 align="center"><img src="./assets/images/readme/API-bug-denmark.jpg" /></h1>
 
